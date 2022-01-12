@@ -13,8 +13,8 @@ def english_word_example(request):
     return request.param
 
 
-@pytest.fixture(params=['zebra', 'lion', 'goliath', 'maccaroni', '', 'blabla'])
-def english_word_second_example(request):
+@pytest.fixture(params=['', 'blabla'])
+def fake_word_example(request):
     return request.param
 
 

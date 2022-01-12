@@ -1,2 +1,0 @@
-pytest~=6.2.5
-assertpy~=1.1
