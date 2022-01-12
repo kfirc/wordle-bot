@@ -21,3 +21,4 @@ class FilteredDict(dict):
 
     def reset(self):
         self.clear()
+        self.__first_filter = True
