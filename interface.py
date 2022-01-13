@@ -17,7 +17,7 @@ class WordleGuessValidator:
             raise ValueError('Guess must be a string')
 
         if len(guess) != self.number_of_letters:
-            raise ValueError('Guess must be exactly 5 letters')
+            raise ValueError(f'Guess must contain exactly {self.number_of_letters} letters')
 
         if not guess.isalpha():
             raise ValueError('Guess must be alphabetical')
