@@ -1,8 +1,11 @@
+import random
 from abc import ABC, abstractmethod
 from functools import lru_cache
 from typing import List
 
 import constants
+from utils.filtered_dict import FilteredDict
+from utils.words import EnglishWords
 
 
 class WordleGuessValidator:
@@ -65,13 +68,18 @@ class WordleInterfaceAbstract(ABC):
 
 class WordleInterface(WordleInterfaceAbstract):
     def __init__(self):
-        self.answer = 'beard'
+        self.answer = self._generate_answer()
         self.validator = WordleGuessValidator(
             number_of_letters=len(self.answer),
             number_of_tries=constants.NUMBER_OF_TRIES,
         )
         self.guesses: List[WordleGuess] = []
         self.guesses_results: List[str] = []
+
+    @staticmethod
+    def _generate_answer():
+        words = FilteredDict(EnglishWords()).filter(f'^.{{{constants.NUMBER_OF_LETTERS}}}$')
+        return random.choice(list(words.keys()))
 
     def post_guess(self, guess: str):
         self.validator.validate(guess)

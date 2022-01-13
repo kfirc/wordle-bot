@@ -8,3 +8,4 @@ JSONFILE_PATH = f'{RESOURCES_DIR}/words_dictionary.json'
 
 # Wordle
 NUMBER_OF_TRIES = 6
+NUMBER_OF_LETTERS = 5

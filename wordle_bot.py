@@ -2,6 +2,7 @@ import random
 import logging
 from abc import ABC, abstractmethod
 
+import constants
 from adapters import GuessResultToRegexPattern
 from utils.filtered_dict import FilteredDict
 from utils.words import EnglishWords
@@ -49,7 +50,7 @@ class WordleBot(WordleBotAbstract):
 
         self.words = EnglishWords()
         self.words = FilteredDict(self.words)
-        self.words = self.words.filter('^.{5}$')
+        self.words = self.words.filter(f'^.{{{constants.NUMBER_OF_LETTERS}}}$')
         self.words = FilteredDict(self.words)
 
     def generate_guess(self) -> str:
