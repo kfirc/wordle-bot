@@ -12,16 +12,16 @@ class WordleGuessValidator:
 
     def validate(self, guess: str):
         if self.number_of_tries <= 0:
-            raise ValueError(f'No more guesses! {guess=}')
+            raise ValueError(f'No more guesses! guess={guess}')
 
         if not isinstance(guess, str):
-            raise ValueError(f'Guess must be a string. {guess=}')
+            raise ValueError(f'Guess must be a string. guess={guess}')
 
         if len(guess) != self.number_of_letters:
-            raise ValueError(f'Guess must contain exactly {self.number_of_letters} letters. {guess=}')
+            raise ValueError(f'Guess must contain exactly {self.number_of_letters} letters. guess={guess}')
 
         if not guess.isalpha():
-            raise ValueError(f'Guess must be alphabetical. {guess=}')
+            raise ValueError(f'Guess must be alphabetical. guess={guess}')
 
 
 class WordleGuess:
