@@ -33,7 +33,7 @@ class WordleGuess:
     def is_true(self):
         return self.guess == self.answer
 
-    @lru_cache
+    @lru_cache()
     def results(self):
         results = ''
 
