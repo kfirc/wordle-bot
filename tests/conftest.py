@@ -1,5 +1,6 @@
 import pytest
 
+from interface import WordleInterface
 from utils.words import EnglishWords
 
 
@@ -20,4 +21,14 @@ def fake_word_example(request):
 
 @pytest.fixture(params=[0, 1, 2, 3, 5, 10])
 def length(request):
+    return request.param
+
+
+@pytest.fixture
+def interface():
+    return WordleInterface()
+
+
+@pytest.fixture(params=['karmkergaergrreg', 12334, True, ValueError, '', '234', 'aa', 'AKFV'])
+def invalid_interface_guess(request):
     return request.param
