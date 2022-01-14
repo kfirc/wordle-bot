@@ -1,6 +1,8 @@
-from utils.words import EnglishWords
+from wordle_bot import WordleBot
+from wordle_interface import WordleInterface
+
 
 if __name__ == '__main__':
-    english_words = EnglishWords()
-
-
+    interface = WordleInterface()
+    bot = WordleBot(interface)
+    bot.start()

@@ -1,6 +1,6 @@
 import pytest
 
-from interface import WordleInterface
+from wordle_interface import WordleInterface
 from utils.words import EnglishWords
 
 
